@@ -44,6 +44,7 @@ button {
   color: #EEE;
 }
 #call-button {
+  clear: both;
   flex: 0 0 auto;
   box-sizing: border-box;
   width: 200px;
@@ -51,7 +52,12 @@ button {
 video {
   max-width: 100%;
   display: block;
+  border: 5px black;
 }
 #self {
   width: 50%;
+  float: left;
+}
+#peer{
+  width:50%;
 }

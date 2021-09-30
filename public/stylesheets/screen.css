@@ -13,7 +13,7 @@ html {
   font-size: 22px;
   line-height: 26px;
   padding: 13px;
-  background-color: #00ff44;
+  background: linear-gradient(90deg, rgba(255,136,0,1) 0%, rgba(241,255,0,1) 100%);
 }
 #header {
   padding-bottom: 13px;
@@ -39,10 +39,12 @@ button {
 .join {
   background: black;
   color: #EEE;
+  cursor: pointer;
 }
 .leave {
   background: #666;
   color: #EEE;
+  cursor: pointer;
 }
 #call-button {
   clear: both;
@@ -61,4 +63,11 @@ video {
 }
 #peer{
   width:50%;
+}
+#display-button{
+  clear: both;
+  float: left;
+  height: 3%;
+  width: 3%;
+  cursor: pointer;
 }

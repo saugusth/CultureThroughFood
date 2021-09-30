@@ -13,6 +13,7 @@ html {
   font-size: 22px;
   line-height: 26px;
   padding: 13px;
+  background-color: #00ff44;
 }
 #header {
   padding-bottom: 13px;
@@ -36,7 +37,7 @@ button {
   padding: 13px;
 }
 .join {
-  background: #092;
+  background: black;
   color: #EEE;
 }
 .leave {

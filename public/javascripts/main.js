@@ -187,3 +187,13 @@ function prepareNamespace(hash, set_location) {
   if (set_location) window.location.hash = ns;
   return ns;
 }
+
+const display = document.querySelector('#display-button');
+display.addEventListener("click", ()=>{
+  if($self.stream.getTracks()[0].enabled){
+    $self.stream.getTracks()[0].enabled  = false;
+  }
+  else{
+    $self.stream.getTracks()[0].enabled  = true;
+  }
+})

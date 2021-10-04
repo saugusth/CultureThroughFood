@@ -8,7 +8,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
 
 /* Begin site styles below */
 
-html {
+#meetingDocStyle {
   font-family: Verdana, Helvetica, Arial, sans-serif;
   font-size: 22px;
   line-height: 26px;
@@ -70,4 +70,48 @@ video {
   height: 3%;
   width: 3%;
   cursor: pointer;
+}
+
+/* new index*/
+#backgroundIndex{
+  background-color: white;
+}
+#indexHeader{
+  background-image: url("../images/breakfast.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+h1{
+ font-size: 2rem;
+ text-align: center;
+}
+
+#formStyle{
+  display: block;
+  text-align: center;
+  width:100%;
+}
+
+#submitForm{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-top: 5%;
+}
+
+#formStyle input[type="text"] {
+  width:50%;
+  height: 40px;
+}
+
+#formStyle input[type="submit"]{
+  font-size: 1.5rem;
+}
+
+#breakfast{
+  position: absolute;
+  width:100%;
+  height:30%;
+  opacity: 50%;
 }

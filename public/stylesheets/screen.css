@@ -58,17 +58,25 @@ video {
   border: 5px black;
 }
 #self {
-  width: 50%;
+  width: 30%;
   float: left;
 }
 #peer{
-  width:50%;
+  width:30%;
 }
 #display-button{
   clear: both;
   float: left;
-  height: 3%;
-  width: 3%;
+  height: 5%;
+  width: 5%;
+  cursor: pointer;
+}
+
+#audio-button{
+  margin-left:10px;
+  float: left;
+  height: 5%;
+  width: 5%;
   cursor: pointer;
 }
 

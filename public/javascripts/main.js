@@ -203,3 +203,13 @@ display.addEventListener("click", ()=>{
     $self.stream.getVideoTracks()[0].enabled  = true;
   }
 })
+
+const audio = document.querySelector('#audio-button');
+audio.addEventListener("click", () =>{
+  if ($self.stream.getAudioTracks()[0].enabled){
+    $self.stream.getAudioTracks()[0].enabled = false;
+  }
+  else{
+    $self.stream.getAudioTracks()[0].enabled = true;
+  }
+})

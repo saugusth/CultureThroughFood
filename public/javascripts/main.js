@@ -2,7 +2,7 @@
 
 const $self = {
   rtcConfig: null,
-  constraints: { audio: false, video: true },
+  constraints: { audio: true, video: true },
   isPolite: false,
   isMakingOffer: false,
   isIgnoringOffer: false,
@@ -77,8 +77,14 @@ function leaveCall() {
 
 function establishCallFeatures(peer) {
   peer.connection
-    .addTrack($self.stream.getTracks()[0],
+    .addTrack($self.stream.getVideoTracks()[0],
       $self.stream);
+
+ /*added audio to track to the webRTC*/     
+  peer.connection
+    .addTrack($self.stream.getAudioTracks()[0],
+      $self.stream);
+  
 }
 
 function registerRtcEvents(peer) {
@@ -190,10 +196,10 @@ function prepareNamespace(hash, set_location) {
 
 const display = document.querySelector('#display-button');
 display.addEventListener("click", ()=>{
-  if($self.stream.getTracks()[0].enabled){
-    $self.stream.getTracks()[0].enabled  = false;
+  if($self.stream.getVideoTracks()[0].enabled){
+    $self.stream.getVideoTracks()[0].enabled  = false;
   }
   else{
-    $self.stream.getTracks()[0].enabled  = true;
+    $self.stream.getVideoTracks()[0].enabled  = true;
   }
 })

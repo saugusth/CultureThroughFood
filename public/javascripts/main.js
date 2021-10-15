@@ -85,6 +85,12 @@ function establishCallFeatures(peer) {
     .addTrack($self.stream.getAudioTracks()[0],
       $self.stream);
   
+  peer.chatChannel = peer.connection.createDataChannel(`chat`,
+    {negotiated: true, id: 50});
+
+  peer.chatChannel.onmessage = function({data}){
+    appendMessage('peer', data);
+  }
 }
 
 function registerRtcEvents(peer) {
@@ -213,3 +219,61 @@ audio.addEventListener("click", () =>{
     $self.stream.getAudioTracks()[0].enabled = true;
   }
 })
+
+const chatForm = document.querySelector('#chat-form');
+
+chatForm.addEventListener('submit', handleChatForm);
+
+function handleChatForm(e){
+  e.preventDefault();
+  const form = e.target;
+  const input = form.querySelector('#chat-input');
+  const message = input.value;
+
+  appendMessage('self', message);
+
+  $peer.chatChannel.send(message);
+
+  console.log('The chat was submited! message: ', message);
+  input.value = '';
+}
+
+function appendMessage(sender, message){
+  const log = document.querySelector('#chat-log')
+  const li = document.createElement('li');
+  li.innerText = message;
+  li.className=sender;
+  log.appendChild(li);
+}
+
+const draggableElement = document.querySelector('#myDraggableElement');
+draggableElement.addEventListener("dragstart", e => {
+  e.dataTransfer.setData("text/plain", draggableElement.id);
+});
+for (const dropZone of document.querySelectorAll(".drop-zone")){
+  dropZone.addEventListener("dragover", e=>{
+    e.preventDefault();
+    dropZone.classList.add("drop-zone--over");
+  })
+
+  dropZone.addEventListener("dragleave", e=>{
+    dropZone.classList.remove("drop-zone--over");
+  })
+
+  dropZone.addEventListener("drop", e=>{
+    e.preventDefault();
+    const dropElementId = e.dataTransfer.getData("text/plain");
+    const droppedElement = document.getElementById(dropElementId);
+    dropZone.appendChild(droppedElement);
+    dropZone.classList.remove("drop-zone--over");
+    var color = document.getElementById('meetingDocStyle').style.backgroundColor;
+    console.log(color);
+    if (color === 'whitesmoke' ){
+      document.getElementById('meetingDocStyle').style.backgroundColor = 'black';
+    }
+    else{
+      document.getElementById('meetingDocStyle').style.backgroundColor = 'whitesmoke';
+    }
+    console.log(dropElementId);
+  })
+}

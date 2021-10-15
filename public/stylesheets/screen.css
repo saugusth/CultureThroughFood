@@ -13,7 +13,7 @@ a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,c
   font-size: 22px;
   line-height: 26px;
   padding: 13px;
-  background: linear-gradient(90deg, rgba(255,136,0,1) 0%, rgba(241,255,0,1) 100%);
+  background-color: whitesmoke;
 }
 #header {
   padding-bottom: 13px;
@@ -58,11 +58,11 @@ video {
   border: 5px black;
 }
 #self {
-  width: 30%;
-  float: left;
+  width: 40%;
+  float:left;
 }
 #peer{
-  width:30%;
+  width:40%;
 }
 #display-button{
   clear: both;
@@ -78,6 +78,35 @@ video {
   height: 5%;
   width: 5%;
   cursor: pointer;
+}
+
+#chat{
+  float: right;
+}
+
+#chat-log .peer{
+  background-color: #21de00;
+}
+
+#chat-log .self{
+  background-color: #bababa;
+}
+
+.drop-zone{
+  width:50px;
+  height:50px;
+  float:right;
+  margin-right:10px;
+  align-items: center;
+  justify-content: center;
+  border: 8px dashed black;
+}
+.drop-zone--over{opacity: 0.5;}
+
+#myDraggableElement{
+  width:25px;
+  height: 25px;
+  background:#000000;
 }
 
 /* new index*/
